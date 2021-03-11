@@ -32,6 +32,7 @@ class EatAPIResponseTest: XCTestCase {
         XCTAssertEqual(restaurant.cuisineTypes,
                        [Restaurant.CuisineType(id: 81, name: "Kebab"),
                         Restaurant.CuisineType(id: 78, name: "Burgers")])
+        XCTAssertEqual(restaurant.logoURL, URL(string: "http://d30v2pzvrfyzpo.cloudfront.net/uk/images/restaurants/108446.gif"))
     }
     
     
