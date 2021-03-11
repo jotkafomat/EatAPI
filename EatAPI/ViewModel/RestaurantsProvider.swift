@@ -8,7 +8,9 @@
 import Foundation
 
 class RestaurantsProvider: ObservableObject {
+    
     @Published private (set) var restaurants = [Restaurant]()
+    
     private let restaurantFetcher: RestaurantFetcher
     
     init(restaurantFetcher: RestaurantFetcher) {

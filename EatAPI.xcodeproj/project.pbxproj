@@ -11,7 +11,6 @@
 		E16063EA25F8FADE003B325A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16063E925F8FADE003B325A /* ContentView.swift */; };
 		E16063EC25F8FAE0003B325A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E16063EB25F8FAE0003B325A /* Assets.xcassets */; };
 		E16063EF25F8FAE0003B325A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E16063EE25F8FAE0003B325A /* Preview Assets.xcassets */; };
-		E16063FA25F8FAE0003B325A /* EatAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16063F925F8FAE0003B325A /* EatAPITests.swift */; };
 		E160640525F8FAE0003B325A /* EatAPIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E160640425F8FAE0003B325A /* EatAPIUITests.swift */; };
 		E160641B25F8FD0B003B325A /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = E160641A25F8FD0B003B325A /* Restaurant.swift */; };
 		E160642025FA3473003B325A /* EatAPIResponseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E160641F25FA3473003B325A /* EatAPIResponseTest.swift */; };
@@ -51,7 +50,6 @@
 		E16063EE25F8FAE0003B325A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E16063F025F8FAE0003B325A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E16063F525F8FAE0003B325A /* EatAPITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EatAPITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E16063F925F8FAE0003B325A /* EatAPITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EatAPITests.swift; sourceTree = "<group>"; };
 		E16063FB25F8FAE0003B325A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E160640025F8FAE0003B325A /* EatAPIUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EatAPIUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E160640425F8FAE0003B325A /* EatAPIUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EatAPIUITests.swift; sourceTree = "<group>"; };
@@ -118,14 +116,13 @@
 			isa = PBXGroup;
 			children = (
 				E16063E725F8FADE003B325A /* EatAPIApp.swift */,
-				E16063E925F8FADE003B325A /* ContentView.swift */,
+				E160649625FAA8BF003B325A /* View */,
 				E16063EB25F8FAE0003B325A /* Assets.xcassets */,
 				E16063F025F8FAE0003B325A /* Info.plist */,
 				E16063ED25F8FAE0003B325A /* Preview Content */,
-				E160641A25F8FD0B003B325A /* Restaurant.swift */,
-				E160643E25FA4A61003B325A /* RestaurantsProvider.swift */,
-				E160644625FA4BBE003B325A /* RestaurantFetcher.swift */,
-				E160646325FA5D17003B325A /* EatAPIRequest.swift */,
+				E160648A25FAA889003B325A /* Model */,
+				E160648E25FAA8A0003B325A /* ViewModel */,
+				E160649225FAA8B3003B325A /* Networking */,
 			);
 			path = EatAPI;
 			sourceTree = "<group>";
@@ -141,15 +138,11 @@
 		E16063F825F8FAE0003B325A /* EatAPITests */ = {
 			isa = PBXGroup;
 			children = (
-				E16063F925F8FAE0003B325A /* EatAPITests.swift */,
 				E16063FB25F8FAE0003B325A /* Info.plist */,
-				E160641F25FA3473003B325A /* EatAPIResponseTest.swift */,
-				E160642E25FA3710003B325A /* Data+Exention.swift */,
-				E160641525F8FB6A003B325A /* exampleResponse.json */,
-				E160643625FA49F1003B325A /* RestaurantsProviderTest.swift */,
-				E160645325FA4CAE003B325A /* MockRestaurantFetcher.swift */,
+				E160647D25FAA821003B325A /* Helpers */,
 				E160645B25FA5CAA003B325A /* EatAPIRequestTest.swift */,
-				E160647325FA5E70003B325A /* MockURLProtocol.swift */,
+				E160641F25FA3473003B325A /* EatAPIResponseTest.swift */,
+				E160643625FA49F1003B325A /* RestaurantsProviderTest.swift */,
 			);
 			path = EatAPITests;
 			sourceTree = "<group>";
@@ -161,6 +154,66 @@
 				E160640625F8FAE0003B325A /* Info.plist */,
 			);
 			path = EatAPIUITests;
+			sourceTree = "<group>";
+		};
+		E160647B25FAA7D7003B325A /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				E160641525F8FB6A003B325A /* exampleResponse.json */,
+			);
+			path = JSON;
+			sourceTree = "<group>";
+		};
+		E160647C25FAA7FF003B325A /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				E160645325FA4CAE003B325A /* MockRestaurantFetcher.swift */,
+				E160647325FA5E70003B325A /* MockURLProtocol.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		E160647D25FAA821003B325A /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				E160642E25FA3710003B325A /* Data+Exention.swift */,
+				E160647B25FAA7D7003B325A /* JSON */,
+				E160647C25FAA7FF003B325A /* Mocks */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		E160648A25FAA889003B325A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E160641A25F8FD0B003B325A /* Restaurant.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E160648E25FAA8A0003B325A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E160643E25FA4A61003B325A /* RestaurantsProvider.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E160649225FAA8B3003B325A /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				E160644625FA4BBE003B325A /* RestaurantFetcher.swift */,
+				E160646325FA5D17003B325A /* EatAPIRequest.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		E160649625FAA8BF003B325A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E16063E925F8FADE003B325A /* ContentView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -311,7 +364,6 @@
 				E160645C25FA5CAA003B325A /* EatAPIRequestTest.swift in Sources */,
 				E160642F25FA3710003B325A /* Data+Exention.swift in Sources */,
 				E160645425FA4CAE003B325A /* MockRestaurantFetcher.swift in Sources */,
-				E16063FA25F8FAE0003B325A /* EatAPITests.swift in Sources */,
 				E160643725FA49F1003B325A /* RestaurantsProviderTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
