@@ -21,6 +21,9 @@
 		E160643F25FA4A61003B325A /* RestaurantsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E160643E25FA4A61003B325A /* RestaurantsProvider.swift */; };
 		E160644725FA4BBE003B325A /* RestaurantFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E160644625FA4BBE003B325A /* RestaurantFetcher.swift */; };
 		E160645425FA4CAE003B325A /* MockRestaurantFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E160645325FA4CAE003B325A /* MockRestaurantFetcher.swift */; };
+		E160645C25FA5CAA003B325A /* EatAPIRequestTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E160645B25FA5CAA003B325A /* EatAPIRequestTest.swift */; };
+		E160646425FA5D17003B325A /* EatAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E160646325FA5D17003B325A /* EatAPIRequest.swift */; };
+		E160647425FA5E70003B325A /* MockURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E160647325FA5E70003B325A /* MockURLProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +64,9 @@
 		E160643E25FA4A61003B325A /* RestaurantsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantsProvider.swift; sourceTree = "<group>"; };
 		E160644625FA4BBE003B325A /* RestaurantFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantFetcher.swift; sourceTree = "<group>"; };
 		E160645325FA4CAE003B325A /* MockRestaurantFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRestaurantFetcher.swift; sourceTree = "<group>"; };
+		E160645B25FA5CAA003B325A /* EatAPIRequestTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EatAPIRequestTest.swift; sourceTree = "<group>"; };
+		E160646325FA5D17003B325A /* EatAPIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EatAPIRequest.swift; sourceTree = "<group>"; };
+		E160647325FA5E70003B325A /* MockURLProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +125,7 @@
 				E160641A25F8FD0B003B325A /* Restaurant.swift */,
 				E160643E25FA4A61003B325A /* RestaurantsProvider.swift */,
 				E160644625FA4BBE003B325A /* RestaurantFetcher.swift */,
+				E160646325FA5D17003B325A /* EatAPIRequest.swift */,
 			);
 			path = EatAPI;
 			sourceTree = "<group>";
@@ -141,6 +148,8 @@
 				E160641525F8FB6A003B325A /* exampleResponse.json */,
 				E160643625FA49F1003B325A /* RestaurantsProviderTest.swift */,
 				E160645325FA4CAE003B325A /* MockRestaurantFetcher.swift */,
+				E160645B25FA5CAA003B325A /* EatAPIRequestTest.swift */,
+				E160647325FA5E70003B325A /* MockURLProtocol.swift */,
 			);
 			path = EatAPITests;
 			sourceTree = "<group>";
@@ -285,6 +294,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E16063EA25F8FADE003B325A /* ContentView.swift in Sources */,
+				E160646425FA5D17003B325A /* EatAPIRequest.swift in Sources */,
 				E160644725FA4BBE003B325A /* RestaurantFetcher.swift in Sources */,
 				E16063E825F8FADE003B325A /* EatAPIApp.swift in Sources */,
 				E160641B25F8FD0B003B325A /* Restaurant.swift in Sources */,
@@ -296,7 +306,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E160647425FA5E70003B325A /* MockURLProtocol.swift in Sources */,
 				E160642025FA3473003B325A /* EatAPIResponseTest.swift in Sources */,
+				E160645C25FA5CAA003B325A /* EatAPIRequestTest.swift in Sources */,
 				E160642F25FA3710003B325A /* Data+Exention.swift in Sources */,
 				E160645425FA4CAE003B325A /* MockRestaurantFetcher.swift in Sources */,
 				E16063FA25F8FAE0003B325A /* EatAPITests.swift in Sources */,
