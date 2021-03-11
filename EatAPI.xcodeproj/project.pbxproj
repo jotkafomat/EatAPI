@@ -17,6 +17,10 @@
 		E160642025FA3473003B325A /* EatAPIResponseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E160641F25FA3473003B325A /* EatAPIResponseTest.swift */; };
 		E160642725FA35FC003B325A /* exampleResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = E160641525F8FB6A003B325A /* exampleResponse.json */; };
 		E160642F25FA3710003B325A /* Data+Exention.swift in Sources */ = {isa = PBXBuildFile; fileRef = E160642E25FA3710003B325A /* Data+Exention.swift */; };
+		E160643725FA49F1003B325A /* RestaurantsProviderTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E160643625FA49F1003B325A /* RestaurantsProviderTest.swift */; };
+		E160643F25FA4A61003B325A /* RestaurantsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E160643E25FA4A61003B325A /* RestaurantsProvider.swift */; };
+		E160644725FA4BBE003B325A /* RestaurantFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E160644625FA4BBE003B325A /* RestaurantFetcher.swift */; };
+		E160645425FA4CAE003B325A /* MockRestaurantFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E160645325FA4CAE003B325A /* MockRestaurantFetcher.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +57,10 @@
 		E160641A25F8FD0B003B325A /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 		E160641F25FA3473003B325A /* EatAPIResponseTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EatAPIResponseTest.swift; sourceTree = "<group>"; };
 		E160642E25FA3710003B325A /* Data+Exention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Exention.swift"; sourceTree = "<group>"; };
+		E160643625FA49F1003B325A /* RestaurantsProviderTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantsProviderTest.swift; sourceTree = "<group>"; };
+		E160643E25FA4A61003B325A /* RestaurantsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantsProvider.swift; sourceTree = "<group>"; };
+		E160644625FA4BBE003B325A /* RestaurantFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantFetcher.swift; sourceTree = "<group>"; };
+		E160645325FA4CAE003B325A /* MockRestaurantFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRestaurantFetcher.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +117,8 @@
 				E16063F025F8FAE0003B325A /* Info.plist */,
 				E16063ED25F8FAE0003B325A /* Preview Content */,
 				E160641A25F8FD0B003B325A /* Restaurant.swift */,
+				E160643E25FA4A61003B325A /* RestaurantsProvider.swift */,
+				E160644625FA4BBE003B325A /* RestaurantFetcher.swift */,
 			);
 			path = EatAPI;
 			sourceTree = "<group>";
@@ -129,6 +139,8 @@
 				E160641F25FA3473003B325A /* EatAPIResponseTest.swift */,
 				E160642E25FA3710003B325A /* Data+Exention.swift */,
 				E160641525F8FB6A003B325A /* exampleResponse.json */,
+				E160643625FA49F1003B325A /* RestaurantsProviderTest.swift */,
+				E160645325FA4CAE003B325A /* MockRestaurantFetcher.swift */,
 			);
 			path = EatAPITests;
 			sourceTree = "<group>";
@@ -273,8 +285,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				E16063EA25F8FADE003B325A /* ContentView.swift in Sources */,
+				E160644725FA4BBE003B325A /* RestaurantFetcher.swift in Sources */,
 				E16063E825F8FADE003B325A /* EatAPIApp.swift in Sources */,
 				E160641B25F8FD0B003B325A /* Restaurant.swift in Sources */,
+				E160643F25FA4A61003B325A /* RestaurantsProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,7 +298,9 @@
 			files = (
 				E160642025FA3473003B325A /* EatAPIResponseTest.swift in Sources */,
 				E160642F25FA3710003B325A /* Data+Exention.swift in Sources */,
+				E160645425FA4CAE003B325A /* MockRestaurantFetcher.swift in Sources */,
 				E16063FA25F8FAE0003B325A /* EatAPITests.swift in Sources */,
+				E160643725FA49F1003B325A /* RestaurantsProviderTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
