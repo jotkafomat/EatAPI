@@ -13,6 +13,10 @@
 		E16063EF25F8FAE0003B325A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E16063EE25F8FAE0003B325A /* Preview Assets.xcassets */; };
 		E16063FA25F8FAE0003B325A /* EatAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16063F925F8FAE0003B325A /* EatAPITests.swift */; };
 		E160640525F8FAE0003B325A /* EatAPIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E160640425F8FAE0003B325A /* EatAPIUITests.swift */; };
+		E160641B25F8FD0B003B325A /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = E160641A25F8FD0B003B325A /* Restaurant.swift */; };
+		E160642025FA3473003B325A /* EatAPIResponseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E160641F25FA3473003B325A /* EatAPIResponseTest.swift */; };
+		E160642725FA35FC003B325A /* exampleResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = E160641525F8FB6A003B325A /* exampleResponse.json */; };
+		E160642F25FA3710003B325A /* Data+Exention.swift in Sources */ = {isa = PBXBuildFile; fileRef = E160642E25FA3710003B325A /* Data+Exention.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +49,10 @@
 		E160640025F8FAE0003B325A /* EatAPIUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EatAPIUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E160640425F8FAE0003B325A /* EatAPIUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EatAPIUITests.swift; sourceTree = "<group>"; };
 		E160640625F8FAE0003B325A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E160641525F8FB6A003B325A /* exampleResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = exampleResponse.json; sourceTree = "<group>"; };
+		E160641A25F8FD0B003B325A /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
+		E160641F25FA3473003B325A /* EatAPIResponseTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EatAPIResponseTest.swift; sourceTree = "<group>"; };
+		E160642E25FA3710003B325A /* Data+Exention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Exention.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +108,7 @@
 				E16063EB25F8FAE0003B325A /* Assets.xcassets */,
 				E16063F025F8FAE0003B325A /* Info.plist */,
 				E16063ED25F8FAE0003B325A /* Preview Content */,
+				E160641A25F8FD0B003B325A /* Restaurant.swift */,
 			);
 			path = EatAPI;
 			sourceTree = "<group>";
@@ -117,6 +126,9 @@
 			children = (
 				E16063F925F8FAE0003B325A /* EatAPITests.swift */,
 				E16063FB25F8FAE0003B325A /* Info.plist */,
+				E160641F25FA3473003B325A /* EatAPIResponseTest.swift */,
+				E160642E25FA3710003B325A /* Data+Exention.swift */,
+				E160641525F8FB6A003B325A /* exampleResponse.json */,
 			);
 			path = EatAPITests;
 			sourceTree = "<group>";
@@ -242,6 +254,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E160642725FA35FC003B325A /* exampleResponse.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,6 +274,7 @@
 			files = (
 				E16063EA25F8FADE003B325A /* ContentView.swift in Sources */,
 				E16063E825F8FADE003B325A /* EatAPIApp.swift in Sources */,
+				E160641B25F8FD0B003B325A /* Restaurant.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,6 +282,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E160642025FA3473003B325A /* EatAPIResponseTest.swift in Sources */,
+				E160642F25FA3710003B325A /* Data+Exention.swift in Sources */,
 				E16063FA25F8FAE0003B325A /* EatAPITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
