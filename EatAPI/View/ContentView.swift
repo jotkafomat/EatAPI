@@ -6,16 +6,36 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct ContentView: View {
+    @ObservedObject var restaurants: RestaurantsProvider
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        List(restaurants.restaurants) { restaurant in
+            HStack {
+                KFImage(restaurant.logoURL)
+                    .aspectRatio(contentMode: .fit)
+                Spacer()
+                Text(restaurant.name)
+                    .font(.body)
+                    .fontWeight(.medium)
+                Spacer()
+                VStack {
+                    Text("Rating:")
+                    Text(String(restaurant.rating))
+                }
+            }
+        }
+        .onAppear {
+            restaurants.getRestaurants()
+        }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(restaurants: RestaurantsProvider(
+                        restaurantFetcher: EatAPIRequest()))
     }
 }

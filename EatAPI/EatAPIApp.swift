@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct EatAPIApp: App {
+    var restaurants = RestaurantsProvider(restaurantFetcher: EatAPIRequest())
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(restaurants: restaurants)
         }
     }
 }
