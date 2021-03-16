@@ -16,10 +16,12 @@ struct ContentView: View {
             HStack {
                 KFImage(restaurant.logoURL)
                     .aspectRatio(contentMode: .fit)
+                    .shadow(radius: 5)
                 Spacer()
                 Text(restaurant.name)
                     .font(.body)
                     .fontWeight(.medium)
+                    
                 Spacer()
                 VStack {
                     Text("Rating:")
