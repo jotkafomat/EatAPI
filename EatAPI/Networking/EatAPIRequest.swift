@@ -19,8 +19,8 @@ class EatAPIRequest: RestaurantFetcher {
         self.baseUrl = baseUrl
     }
     
-    func getRestaurants() -> AnyPublisher<[Restaurant], Never> {
-        let url = URL(string: baseUrl)!
+    func getRestaurants(for postcode: String) -> AnyPublisher<[Restaurant], Never> {
+        let url = URL(string: baseUrl + postcode)!
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         

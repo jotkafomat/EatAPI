@@ -9,5 +9,5 @@ import Foundation
 import Combine
 
 protocol RestaurantFetcher {
-    func getRestaurants() -> AnyPublisher<[Restaurant], Never>
+    func getRestaurants(for postcode: String) -> AnyPublisher<[Restaurant], Never>
 }

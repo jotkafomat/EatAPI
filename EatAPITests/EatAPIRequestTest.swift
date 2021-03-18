@@ -38,7 +38,7 @@ class EatAPIRequestTest: XCTestCase {
         
         let restaurantsLoaded = expectation(description: "restaurants get loaded")
         
-        cancellable = api.getRestaurants().sink { restaurants in
+        cancellable = api.getRestaurants(for: "postcode").sink { restaurants in
             XCTAssertEqual(restaurants.count, 505)
             XCTAssertEqual(restaurants[0].name, "Brixton Kebabish")
             XCTAssertEqual(restaurants[0].rating, 4.33)
@@ -59,7 +59,7 @@ class EatAPIRequestTest: XCTestCase {
         
         let restaurantsNotLoaded = expectation(description: "restaurants not loaded")
         
-        cancellable = api.getRestaurants().sink { restaurants in
+        cancellable = api.getRestaurants(for: "postcode").sink { restaurants in
             XCTAssertTrue(restaurants.isEmpty)
             restaurantsNotLoaded.fulfill()
         }

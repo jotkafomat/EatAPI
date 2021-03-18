@@ -19,7 +19,7 @@ class RestaurantsProvider: ObservableObject {
     
     func getRestaurants() {
         restaurantFetcher
-            .getRestaurants()
+            .getRestaurants(for: "SW24PB")
             .receive(on: RunLoop.main)
             .assign(to: &$restaurants)
     }

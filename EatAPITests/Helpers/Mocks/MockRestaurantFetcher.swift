@@ -14,7 +14,7 @@ enum MockRestaurantFetcher: RestaurantFetcher {
     case errorProne
     case succesful
     
-    func getRestaurants() -> AnyPublisher<[Restaurant], Never> {
+    func getRestaurants(for postcode: String) -> AnyPublisher<[Restaurant], Never> {
         switch self {
         case .errorProne:
             return Just<[Restaurant]>([]).eraseToAnyPublisher()
