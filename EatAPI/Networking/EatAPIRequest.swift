@@ -11,16 +11,17 @@ import Combine
 class EatAPIRequest: RestaurantFetcher {
     
     private let session: URLSession
-    private let baseUrl: URL
+    private let baseUrl: String
     
     public init(session: URLSession = URLSession.shared,
-                baseUrl: URL = URL(string: "https://uk.api.just-eat.io/restaurants/bypostcode/sw24pb")!) {
+                baseUrl: String = "https://uk.api.just-eat.io/restaurants/bypostcode/") {
         self.session = session
         self.baseUrl = baseUrl
     }
     
     func getRestaurants() -> AnyPublisher<[Restaurant], Never> {
-        var request = URLRequest(url: baseUrl)
+        let url = URL(string: baseUrl)!
+        var request = URLRequest(url: url)
         request.httpMethod = "GET"
         
         return session
