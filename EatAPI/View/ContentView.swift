@@ -12,20 +12,25 @@ struct ContentView: View {
     @ObservedObject var restaurants: RestaurantsProvider
     
     var body: some View {
-        List(restaurants.restaurants) { restaurant in
-            HStack {
-                KFImage(restaurant.logoURL)
-                    .aspectRatio(contentMode: .fit)
-                    .shadow(radius: 5)
-                Spacer()
-                Text(restaurant.name)
-                    .font(.body)
-                    .fontWeight(.medium)
-                    
-                Spacer()
-                VStack {
-                    Text("Rating:")
-                    Text(String(restaurant.rating))
+        VStack {
+            TextField("type your postcode", text: $restaurants.postcode)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .padding()
+            List(restaurants.restaurants) { restaurant in
+                HStack {
+                    KFImage(restaurant.logoURL)
+                        .aspectRatio(contentMode: .fit)
+                        .shadow(radius: 5)
+                    Spacer()
+                    Text(restaurant.name)
+                        .font(.body)
+                        .fontWeight(.medium)
+                        
+                    Spacer()
+                    VStack {
+                        Text("Rating:")
+                        Text(String(restaurant.rating))
+                    }
                 }
             }
         }
