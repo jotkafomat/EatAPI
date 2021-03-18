@@ -10,17 +10,22 @@ import Foundation
 class RestaurantsProvider: ObservableObject {
     
     @Published private (set) var restaurants = [Restaurant]()
-    
-    private let restaurantFetcher: RestaurantFetcher
+    @Published var postcode: String = ""
     
     init(restaurantFetcher: RestaurantFetcher) {
-        self.restaurantFetcher = restaurantFetcher
-    }
-    
-    func getRestaurants() {
-        restaurantFetcher
-            .getRestaurants(for: "SW24PB")
+        $postcode
+            .debounce(for: .milliseconds(700), scheduler: RunLoop.main)
+            .removeDuplicates()
+            .map(applyFormatting)
+            .flatMap(restaurantFetcher.getRestaurants)
             .receive(on: RunLoop.main)
             .assign(to: &$restaurants)
+    }
+}
+
+extension RestaurantsProvider {
+    private func applyFormatting(to rawTerm: String) -> String {
+        rawTerm.replacingOccurrences(of: " ",
+                                     with: "")
     }
 }
