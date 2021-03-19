@@ -35,7 +35,7 @@ class RestaurantsProviderTest: XCTestCase {
                 XCTAssertEqual(restaurants.first?.name, "Brixton Kebabish")
                 expectation.fulfill()
             }
-        subject.getRestaurants()
+        subject.postcode = "SW24PB"
         wait(for: [expectation], timeout: 1.0)
     }
     
@@ -51,7 +51,7 @@ class RestaurantsProviderTest: XCTestCase {
                 XCTAssert(restaurants.isEmpty)
                 expectation.fulfill()
             }
-        subject.getRestaurants()
+        subject.postcode = "SW24PB"
         wait(for: [expectation], timeout: 1.0)
     }
 }

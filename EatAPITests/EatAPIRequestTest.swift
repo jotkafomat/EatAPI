@@ -12,7 +12,7 @@ import Combine
 class EatAPIRequestTest: XCTestCase {
     
     var api: EatAPIRequest!
-    let baseUrl = URL(string: "https://just.test/")
+    let baseUrl = "https://just.test/"
     var cancellable: AnyCancellable?
 
     override func setUpWithError() throws {
@@ -20,7 +20,7 @@ class EatAPIRequestTest: XCTestCase {
         let config = URLSessionConfiguration.default
         config.protocolClasses = [MockURLProtocol.self]
         let session = URLSession(configuration: config)
-        api = EatAPIRequest(session: session, baseUrl: baseUrl!)
+        api = EatAPIRequest(session: session, baseUrl: baseUrl)
     }
 
     override func tearDownWithError() throws {
@@ -31,14 +31,14 @@ class EatAPIRequestTest: XCTestCase {
 
     func testGetRestaurantsDetailsWhenRequestSuccess() throws {
         MockURLProtocol.requestHandler = { _ in
-            let response = HTTPURLResponse(url: self.baseUrl!, statusCode: 200, httpVersion: nil, headerFields: nil)!
+            let response = HTTPURLResponse(url: URL(string: self.baseUrl)!, statusCode: 200, httpVersion: nil, headerFields: nil)!
             let data = try! Data(from: "exampleResponse")
             return (response, data)
         }
         
         let restaurantsLoaded = expectation(description: "restaurants get loaded")
         
-        cancellable = api.getRestaurants().sink { restaurants in
+        cancellable = api.getRestaurants(for: "postcode").sink { restaurants in
             XCTAssertEqual(restaurants.count, 505)
             XCTAssertEqual(restaurants[0].name, "Brixton Kebabish")
             XCTAssertEqual(restaurants[0].rating, 4.33)
@@ -53,13 +53,13 @@ class EatAPIRequestTest: XCTestCase {
     
     func testGetRestaurantsDetailsWhenRequestFails() throws {
         MockURLProtocol.requestHandler = { _ in
-            let response = HTTPURLResponse(url: self.baseUrl!, statusCode: 404, httpVersion: nil, headerFields: nil)!
+            let response = HTTPURLResponse(url: URL(string: self.baseUrl)!, statusCode: 404, httpVersion: nil, headerFields: nil)!
             return (response, nil)
         }
         
         let restaurantsNotLoaded = expectation(description: "restaurants not loaded")
         
-        cancellable = api.getRestaurants().sink { restaurants in
+        cancellable = api.getRestaurants(for: "postcode").sink { restaurants in
             XCTAssertTrue(restaurants.isEmpty)
             restaurantsNotLoaded.fulfill()
         }

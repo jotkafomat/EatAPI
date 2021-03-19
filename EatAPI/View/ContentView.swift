@@ -29,9 +29,6 @@ struct ContentView: View {
                 }
             }
         }
-        .onAppear {
-            restaurants.getRestaurants()
-        }
     }
 }
 
