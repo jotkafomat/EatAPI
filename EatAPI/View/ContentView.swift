@@ -13,9 +13,16 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
-            TextField("type your postcode", text: $restaurants.postcode)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .padding()
+            HStack {
+                Button {
+                    restaurants.getNearbyRestaurants()
+                } label: {
+                    Image(systemName: "mappin.circle.fill")
+                        .imageScale(.large)
+                }
+                TextField("or type in your postcode", text: $restaurants.postcode)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+            }   .padding()
             List(restaurants.restaurants) { restaurant in
                 HStack {
                     KFImage(restaurant.logoURL)
@@ -39,7 +46,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(restaurants: RestaurantsProvider(
-                        restaurantFetcher: EatAPIRequest()))
+        ContentView(restaurants: RestaurantsProvider())
     }
 }

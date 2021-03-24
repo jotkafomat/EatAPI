@@ -17,7 +17,10 @@ class RestaurantsProviderTest: XCTestCase {
     var cancellable: AnyCancellable?
 
     override func setUpWithError() throws {
-        subject = RestaurantsProvider(restaurantFetcher: MockRestaurantFetcher.succesful)   }
+        subject = RestaurantsProvider(
+            restaurantFetcher: MockRestaurantFetcher.succesful,
+            postcodeProvider: MockPostcodeProvider())
+    }
 
     override func tearDownWithError() throws {
         subject = nil
@@ -42,7 +45,9 @@ class RestaurantsProviderTest: XCTestCase {
     func testRestaurantProviderError() throws {
         
         let expectation = XCTestExpectation(description: "expect restaurants to be empty")
-        subject = RestaurantsProvider(restaurantFetcher: MockRestaurantFetcher.errorProne)
+        subject = RestaurantsProvider(
+            restaurantFetcher: MockRestaurantFetcher.errorProne,
+            postcodeProvider: MockPostcodeProvider())
         cancellable = subject
             .$restaurants
             .dropFirst()
@@ -52,6 +57,22 @@ class RestaurantsProviderTest: XCTestCase {
                 expectation.fulfill()
             }
         subject.postcode = "SW24PB"
+        wait(for: [expectation], timeout: 1.0)
+    }
+    
+    func testGetNearbyRestaurants() {
+        let expectation = XCTestExpectation(description: "expect restaurants not be empty")
+        
+        cancellable = subject
+            .$restaurants
+            .dropFirst()
+            .sink {
+                restaurants in
+                XCTAssertFalse(restaurants.isEmpty)
+                expectation.fulfill()
+                
+            }
+        subject.getNearbyRestaurants()
         wait(for: [expectation], timeout: 1.0)
     }
 }

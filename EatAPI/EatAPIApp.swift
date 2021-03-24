@@ -9,7 +9,7 @@ import SwiftUI
 
 @main
 struct EatAPIApp: App {
-    var restaurants = RestaurantsProvider(restaurantFetcher: EatAPIRequest())
+    var restaurants = RestaurantsProvider()
     
     var body: some Scene {
         WindowGroup {
