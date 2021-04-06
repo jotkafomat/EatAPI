@@ -8,6 +8,7 @@
 import Combine
 import Foundation
 import XCTest
+import CoreLocation
 @testable import EatAPI
 
 
@@ -27,7 +28,7 @@ class RestaurantsProviderTest: XCTestCase {
         cancellable?.cancel()
     }
 
-    func testRestaurantProviderSuccesful() throws {
+    func testRestaurantProviderSuccesfulRestaurantsGetUpdated() throws {
         let expectation = XCTestExpectation(description: "expect restaurants not be empty")
         
         cancellable = subject
@@ -42,25 +43,57 @@ class RestaurantsProviderTest: XCTestCase {
         wait(for: [expectation], timeout: 1.0)
     }
     
-    func testRestaurantProviderError() throws {
+    func testRestaurantProviderSuccesfulRegionGetUpdated() throws {
+        let expectation = XCTestExpectation(description: "expect region to get updated")
         
-        let expectation = XCTestExpectation(description: "expect restaurants to be empty")
-        subject = RestaurantsProvider(
-            restaurantFetcher: MockRestaurantFetcher.errorProne,
-            postcodeProvider: MockPostcodeProvider())
         cancellable = subject
-            .$restaurants
+            .$region
             .dropFirst()
             .sink {
-                restaurants in
-                XCTAssert(restaurants.isEmpty)
+                region in
+                XCTAssertEqual(region.center.latitude, 51.439211)
+                XCTAssertEqual(region.center.longitude, -0.130198)
                 expectation.fulfill()
             }
         subject.postcode = "SW24PB"
         wait(for: [expectation], timeout: 1.0)
     }
     
-    func testGetNearbyRestaurants() {
+    func testRestaurantProviderErrorRestaurantsDontChange() throws {
+        let expectation = XCTestExpectation(description: "expect restaurants not to change")
+        expectation.isInverted = true
+        
+        subject = RestaurantsProvider(
+            restaurantFetcher: MockRestaurantFetcher.errorProne,
+            postcodeProvider: MockPostcodeProvider())
+        cancellable = subject
+            .$restaurants
+            .dropFirst()
+            .sink { _ in
+                expectation.fulfill()
+            }
+        subject.postcode = "SW24PB"
+        wait(for: [expectation], timeout: 1.0)
+    }
+    
+    func testRestaurantProviderErrorRegionDoesntChange() throws {
+        let expectation = XCTestExpectation(description: "expect region not to change")
+        expectation.isInverted = true
+        
+        subject = RestaurantsProvider(
+            restaurantFetcher: MockRestaurantFetcher.errorProne,
+            postcodeProvider: MockPostcodeProvider())
+        cancellable = subject
+            .$region
+            .dropFirst()
+            .sink { _ in
+                expectation.fulfill()
+            }
+        subject.postcode = "SW24PB"
+        wait(for: [expectation], timeout: 1.0)
+    }
+    
+    func testGetNearbyRestaurantsUpdateRestaurants() {
         let expectation = XCTestExpectation(description: "expect restaurants not be empty")
         
         cancellable = subject
@@ -71,6 +104,22 @@ class RestaurantsProviderTest: XCTestCase {
                 XCTAssertFalse(restaurants.isEmpty)
                 expectation.fulfill()
                 
+            }
+        subject.getNearbyRestaurants()
+        wait(for: [expectation], timeout: 1.0)
+    }
+    
+    func testGetNearbyRestaurantsUpdateRegion() {
+        let expectation = XCTestExpectation(description: "expect region to be updated")
+        
+        cancellable = subject
+            .$region
+            .dropFirst()
+            .sink {
+                region in
+                XCTAssertEqual(region.center.latitude, 51.439211)
+                XCTAssertEqual(region.center.longitude, -0.130198)
+                expectation.fulfill()
             }
         subject.getNearbyRestaurants()
         wait(for: [expectation], timeout: 1.0)

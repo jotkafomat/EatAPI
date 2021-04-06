@@ -38,7 +38,11 @@ class EatAPIRequestTest: XCTestCase {
         
         let restaurantsLoaded = expectation(description: "restaurants get loaded")
         
-        cancellable = api.getRestaurants(for: "postcode").sink { restaurants in
+        cancellable = api.getRestaurants(for: "postcode").sink { response in
+            guard let restaurants = response?.restaurants else {
+                XCTFail("expected response not to be nil")
+                return
+            }
             XCTAssertEqual(restaurants.count, 505)
             XCTAssertEqual(restaurants[0].name, "Brixton Kebabish")
             XCTAssertEqual(restaurants[0].rating, 4.33)
@@ -57,11 +61,11 @@ class EatAPIRequestTest: XCTestCase {
             return (response, nil)
         }
         
-        let restaurantsNotLoaded = expectation(description: "restaurants not loaded")
+        let responseIsNil = expectation(description: "response is nil")
         
-        cancellable = api.getRestaurants(for: "postcode").sink { restaurants in
-            XCTAssertTrue(restaurants.isEmpty)
-            restaurantsNotLoaded.fulfill()
+        cancellable = api.getRestaurants(for: "postcode").sink { response in
+            XCTAssertNil(response)
+            responseIsNil.fulfill()
         }
         waitForExpectations(timeout: 1)
     }

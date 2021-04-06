@@ -6,10 +6,10 @@
 //
 
 import SwiftUI
-import Kingfisher
 
 struct ContentView: View {
     @ObservedObject var restaurants: RestaurantsProvider
+    @State var showMap = false
     
     var body: some View {
         VStack {
@@ -22,23 +22,19 @@ struct ContentView: View {
                 }
                 TextField("or type in your postcode", text: $restaurants.postcode)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
-            }   .padding()
-            List(restaurants.restaurants) { restaurant in
-                HStack {
-                    KFImage(restaurant.logoURL)
-                        .aspectRatio(contentMode: .fit)
-                        .shadow(radius: 5)
-                    Spacer()
-                    Text(restaurant.name)
-                        .font(.body)
-                        .fontWeight(.medium)
-                        
-                    Spacer()
-                    VStack {
-                        Text("Rating:")
-                        Text(String(restaurant.rating))
+                Button {
+                    withAnimation {
+                        showMap.toggle()
                     }
+                } label: {
+                    Image(systemName: showMap ? "list.bullet" : "map")
+                        .imageScale(.large)
                 }
+            }   .padding()
+            if showMap {
+                MapView(region: $restaurants.region)
+            } else {
+                RestaurantList(restaurants: restaurants.restaurants)
             }
         }
     }

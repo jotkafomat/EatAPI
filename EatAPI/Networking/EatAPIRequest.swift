@@ -19,7 +19,7 @@ class EatAPIRequest: RestaurantFetcher {
         self.baseUrl = baseUrl
     }
     
-    func getRestaurants(for postcode: String) -> AnyPublisher<[Restaurant], Never> {
+    func getRestaurants(for postcode: String) -> AnyPublisher<EatAPIResponse?, Never> {
         let url = URL(string: baseUrl + postcode)!
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
@@ -27,9 +27,8 @@ class EatAPIRequest: RestaurantFetcher {
         return session
             .dataTaskPublisher(for: request)
             .map { $0.data }
-            .decode(type: EatAPIResponse.self, decoder: JSONDecoder())
-            .map { $0.restaurants }
-            .catch { _ in Just<[Restaurant]>([]) }
+            .decode(type: EatAPIResponse?.self, decoder: JSONDecoder())
+            .catch { _ in Just<EatAPIResponse?>(nil) }
             .eraseToAnyPublisher()
     }
 }

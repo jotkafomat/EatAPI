@@ -14,15 +14,15 @@ enum MockRestaurantFetcher: RestaurantFetcher {
     case errorProne
     case succesful
     
-    func getRestaurants(for postcode: String) -> AnyPublisher<[Restaurant], Never> {
+    func getRestaurants(for postcode: String) -> AnyPublisher<EatAPIResponse?, Never> {
         switch self {
         case .errorProne:
-            return Just<[Restaurant]>([]).eraseToAnyPublisher()
+            return Just<EatAPIResponse?>(nil).eraseToAnyPublisher()
         case .succesful:
             let decoder = JSONDecoder()
             let data = try? Data(from: "exampleResponse")
             let response = try? decoder.decode(EatAPIResponse.self, from: data!)
-            return Just<[Restaurant]>(response?.restaurants ?? []).eraseToAnyPublisher()
+            return Just<EatAPIResponse?>(response).eraseToAnyPublisher()
             
         }
     }

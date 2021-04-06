@@ -7,11 +7,13 @@
 
 import Combine
 import Foundation
+import MapKit
 
 class RestaurantsProvider: ObservableObject {
     
     @Published private (set) var restaurants = [Restaurant]()
     @Published var postcode: String = ""
+    @Published var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 51.507928, longitude: -0.12792), span: MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5))
     private var cancellables = Set<AnyCancellable>()
     
     private let restaurantFetcher: RestaurantFetcher
@@ -45,8 +47,13 @@ class RestaurantsProvider: ObservableObject {
         
         restaurantFetcher
             .getRestaurants(for: postcode)
+            .compactMap { $0 }
             .receive(on: RunLoop.main)
-            .assign(to: &$restaurants)
+            .sink { [weak self] response in
+                self?.restaurants = response.restaurants
+                self?.region = MKCoordinateRegion(center: response.coordinates, span: MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02))
+            }
+            .store(in: &cancellables)
     }
 }
 

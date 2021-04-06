@@ -16,6 +16,8 @@
 		E1176405260B9AB0006B9448 /* PostcodeProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1176404260B9AB0006B9448 /* PostcodeProvider.swift */; };
 		E117640A260B9AE5006B9448 /* ReverseGeocoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1176409260B9AE5006B9448 /* ReverseGeocoder.swift */; };
 		E117640F260B9B25006B9448 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E117640E260B9B25006B9448 /* LocationManager.swift */; };
+		E131F0D226125150006982D6 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E131F0D126125150006982D6 /* MapView.swift */; };
+		E131F0D726126B24006982D6 /* RestaurantListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E131F0D626126B23006982D6 /* RestaurantListView.swift */; };
 		E16063E825F8FADE003B325A /* EatAPIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16063E725F8FADE003B325A /* EatAPIApp.swift */; };
 		E16063EA25F8FADE003B325A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16063E925F8FADE003B325A /* ContentView.swift */; };
 		E16063EC25F8FAE0003B325A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E16063EB25F8FAE0003B325A /* Assets.xcassets */; };
@@ -62,6 +64,8 @@
 		E1176404260B9AB0006B9448 /* PostcodeProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostcodeProvider.swift; sourceTree = "<group>"; };
 		E1176409260B9AE5006B9448 /* ReverseGeocoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReverseGeocoder.swift; sourceTree = "<group>"; };
 		E117640E260B9B25006B9448 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		E131F0D126125150006982D6 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		E131F0D626126B23006982D6 /* RestaurantListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantListView.swift; sourceTree = "<group>"; };
 		E16063E425F8FADE003B325A /* EatAPI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EatAPI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E16063E725F8FADE003B325A /* EatAPIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EatAPIApp.swift; sourceTree = "<group>"; };
 		E16063E925F8FADE003B325A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -249,6 +253,8 @@
 			isa = PBXGroup;
 			children = (
 				E16063E925F8FADE003B325A /* ContentView.swift */,
+				E131F0D126125150006982D6 /* MapView.swift */,
+				E131F0D626126B23006982D6 /* RestaurantListView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -392,6 +398,8 @@
 				E16063EA25F8FADE003B325A /* ContentView.swift in Sources */,
 				E160646425FA5D17003B325A /* EatAPIRequest.swift in Sources */,
 				E117640F260B9B25006B9448 /* LocationManager.swift in Sources */,
+				E131F0D726126B24006982D6 /* RestaurantListView.swift in Sources */,
+				E131F0D226125150006982D6 /* MapView.swift in Sources */,
 				E160644725FA4BBE003B325A /* RestaurantFetcher.swift in Sources */,
 				E11763E12604ED92006B9448 /* LocationBasedPostcodeProvider.swift in Sources */,
 				E16063E825F8FADE003B325A /* EatAPIApp.swift in Sources */,
